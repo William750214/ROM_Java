@@ -1,0 +1,43 @@
+package com.heynas.test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.stream.Stream;
+
+/**
+ * <p> Description:  TestStreamProcess </p>
+ * <pre> </pre>
+ *
+ * Copyright: © 2012-2017 Heynas Studio. All rights reserved.
+ *
+ * @author William
+ * @version 1.0
+ */
+public class TestReduce01 {
+    public static void main(String[] args) {
+        List<String> lst = new ArrayList();
+        lst.add("50");
+        lst.add("60");
+        lst.add("70");
+        lst.add("80");
+        lst.add("90");
+        lst.add("100");
+
+        Stream<String> stream01 = lst.stream();
+
+//        Integer sum = stream01.reduce(0, (a, b) -> {
+//            return a + b;
+//        });
+//
+//        System.out.println(sum);
+
+        OptionalInt optional = stream01.mapToInt(n -> {
+            return Integer.parseInt(n);
+        }).reduce(Integer::sum);
+
+        System.out.println(optional.getAsInt());
+
+    }
+}
