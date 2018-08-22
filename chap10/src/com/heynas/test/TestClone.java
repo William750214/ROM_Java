@@ -35,6 +35,7 @@ public class TestClone {
         Date date01 = new Date();
         Date date02 = (Date) date01.clone();
 
+
         Person person1 = new Person("zhangsan", 18, true);
         person1.setGrades(new Integer[]{70, 80, 90});
         Person person2 = (Person) person1.clone();
